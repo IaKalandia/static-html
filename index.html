@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
 
-</html>
-
 <head>
-    <title>My Website</title>
+    <title>Weather App</title>
 </head>
 
-
+</html>
 
 <body>
-    <h1>Welcome to my website</h1>
-    <script>
+    <h1>Weather in <span id="city">London</span></h1>
+    <p>Temperature: <span id="temp">--</span>°C</p>
 
+    <script>
+        const apiKey = '7f9abedc50821f2a13654ef86795f5fa'; // Replace this
+        const city = 'London';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('temp').textContent = data.main.temp;
+            })
+            .catch(error => {
+                console.error('Error fetching weather:', error);
+            });
     </script>
 </body>
 
