@@ -8,11 +8,12 @@
 </html>
 
 <body>
+
+    <script src="key.js"></script>
     <h1>Weather in <span id="city">London</span></h1>
     <p>Temperature: <span id="temp">--</span>°C</p>
 
     <script>
-        const apiKey = 'OPENWEATHER_API_KEY';
         const city = 'London';
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
